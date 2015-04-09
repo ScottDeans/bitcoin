@@ -246,7 +246,10 @@ RPCConsole::~RPCConsole()
     emit stopExecutor();
     delete ui;
 }
-
+void RPCConsole::BanPeer(const QString &params)
+{
+  addnode (ip:port ban);
+}
 bool RPCConsole::eventFilter(QObject* obj, QEvent *event)
 {
     if(event->type() == QEvent::KeyPress) // Special key handling
@@ -308,6 +311,7 @@ void RPCConsole::setClientModel(ClientModel *model)
         ui->peerWidget->setColumnWidth(PeerTableModel::Address, ADDRESS_COLUMN_WIDTH);
         ui->peerWidget->setColumnWidth(PeerTableModel::Subversion, SUBVERSION_COLUMN_WIDTH);
         ui->peerWidget->setColumnWidth(PeerTableModel::Ping, PING_COLUMN_WIDTH);
+	ui->peerWidget->setColumnWidth(PeerTableModel::Ping,PING_COLUMN_WIDTH);
 
         // connect the peerWidget selection model to our peerSelected() handler
         connect(ui->peerWidget->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),

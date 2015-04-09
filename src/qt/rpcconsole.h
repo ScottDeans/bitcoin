@@ -59,6 +59,7 @@ private slots:
     void hideEvent(QHideEvent *event);
 
 public slots:
+    void BanPeer(const QString &params);
     void clear();
     void message(int category, const QString &message, bool html = false);
     /** Set number of connections shown in the UI */

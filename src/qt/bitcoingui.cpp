@@ -155,7 +155,7 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle *networkStyle, QWidget *parent) :
 
     // Create application menu bar
     createMenuBar();
-
+  
     // Create the toolbars
     createToolBars();
 
@@ -234,7 +234,7 @@ BitcoinGUI::~BitcoinGUI()
 
     GUIUtil::saveWindowGeometry("nWindow", this);
     if(trayIcon) // Hide tray icon, as deleting will let it linger until quit (on Ubuntu)
-        trayIcon->hide();
+      //trayIcon->hide();
 #ifdef Q_OS_MAC
     delete appMenuBar;
     MacDockIconHandler::instance()->setMainWindow(NULL);
